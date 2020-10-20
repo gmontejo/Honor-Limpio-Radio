@@ -1,0 +1,363 @@
+.homeContainer {
+  flex: 1;
+  display: flex;
+  padding: 20px 40px;
+  width: 100%;
+
+  @include responsive(tab-port) {
+    padding: 5px 10px;
+  }
+}
+
+@mixin titleStyle($color) {
+  p {
+    margin: 0;
+    width: 100%;
+  }
+
+  .title {
+    border-radius: 3px 3px 0px 0px;
+    margin-bottom: 12px;
+    padding: 5px;
+    display: flex;
+    align-items: baseline;
+    color: $color;
+    font-size: 2rem;
+    background-color: #000;
+  }
+}
+
+//SOCIAL MEDIA
+.socialMedia {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+
+  p {
+    margin: 0;
+    font-size: 2rem;
+  }
+}
+
+.card {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 16px 0px;
+  width: 100%;
+  padding: 40px;
+
+  @include responsive(tab-port) {
+    padding: 10px 15px;
+    flex-direction: column;
+  }
+}
+
+//HOME CONTENT
+.homeContent {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  @include responsive(tab-port) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+//FIRST COLUMN YOUTUBE VIDEO AND FAIR
+.firstCol {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 50%;
+  width: 50%;
+
+  @include responsive(tab-port) {
+    width: 100%;
+  }
+
+  //YOUTUBE VIDEOS
+  .videoCol {
+    padding: 0px 15px 0px 0px;
+    margin-bottom: 30px;
+    min-height: 400px;
+
+    @include titleStyle(white);
+
+    @include responsive(tab-port) {
+      padding: 0;
+      width: 100%;
+    }
+
+    .activeVideo {
+      width: 100%;
+      height: fit-content;
+
+      iFrame {
+        width: 100%;
+      }
+    }
+
+    .carouselContainer {
+      display: flex;
+      position: relative;
+
+      #slideRight {
+        position: absolute;
+        opacity: 0.8;
+        z-index: 6;
+        right: 0;
+        top: 65px;
+      }
+
+      #slideLeft {
+        position: absolute;
+        opacity: 0.8;
+        z-index: 6;
+        left: 0;
+        top: 65px;
+      }
+    }
+
+    #videoCarousel {
+      display: flex;
+      position: relative;
+      width: 100%;
+      overflow-x: scroll;
+      z-index: 4;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .imgKitten {
+        height: 150px;
+        width: 200px;
+        position: absolute;
+        margin-right: 50px;
+      }
+
+      .miniVideo {
+        height: 150px;
+        width: 200px;
+        margin: 2px;
+
+        iFrame {
+          width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+
+  //PHONE FLYER
+
+  .newShowPhone {
+    display: none;
+
+    @include responsive(tab-port) {
+      @include titleStyle(yellow);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 400px;
+      margin-bottom: 30px;
+
+      padding: 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  //FAIR
+  .fair {
+    padding: 0px 15px 0px 0px;
+    margin-bottom: 30px;
+
+    @include titleStyle(white);
+
+    @include responsive(tab-port) {
+      padding: 0;
+      width: 100%;
+    }
+
+    iframe {
+      width: 100%;
+    }
+  }
+}
+
+//SECOND COLUMN NEXT SHOW AND OLD PROGRAMS
+.secondCol {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 30%;
+  width: 30%;
+  overflow: hidden;
+  padding: 0px 15px 0px 15px;
+
+  @include responsive(tab-port) {
+    padding: 0;
+    width: 100%;
+  }
+
+  .newShow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    margin-bottom: 30px;
+
+    @include titleStyle(yellow);
+
+    @include responsive(tab-port) {
+      display: none;
+      padding: 0;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .oldShows {
+    @include responsive(tab-port) {
+      padding: 0;
+      width: 100%;
+    }
+
+    @include titleStyle(white);
+
+    .showsContainer {
+      position: relative;
+      height: 250px;
+      margin-bottom: 15px;
+      overflow: hidden;
+
+      #slideUp {
+        position: absolute;
+        opacity: 0.8;
+        z-index: 6;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      #slideDown {
+        position: absolute;
+        opacity: 0.8;
+        z-index: 6;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 0);
+      }
+
+      .showsCarousel {
+        height: 100%;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//ADS COLUMN
+.adsCol {
+  flex: 0 0 20%;
+  width: 20%;
+  padding: 0px 0px 0px 15px;
+
+  @include responsive(tab-port) {
+    padding: 0;
+    width: 100%;
+  }
+
+  .adsContainer {
+    padding: 0 5px 5px 5px;
+    @include responsive(tab-port) {
+      margin-top: 20px;
+    }
+
+    .ad {
+      margin-bottom: 15px;
+      font-size: 2rem;
+      color: white;
+
+      img {
+        width: 100%;
+      }
+
+      @include responsive(tab-port) {
+        margin-bottom: 10px;
+      }
+    }
+
+    .visitors {
+      margin-bottom: 30px;
+      padding: 5px 15px;
+      background-color: rgb(8, 8, 8);
+      border-radius: 2px;
+      box-shadow: 0 0 6px 5px white;
+      font-size: 2rem;
+      color: white;
+
+      p {
+        margin: 0;
+      }
+
+      @include responsive(tab-port) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+// OLD STYLES
+
+// .leftSide {
+//   padding: 2rem 1.5rem;
+//   flex: 0 0 85%;
+//   display: flex;
+//   justify-content: space-around;
+//   align-content: flex-start;
+//   flex-wrap: wrap;
+// }
+
+// .rightSide {
+//   padding: 2rem;
+//   flex: 0 0 15%;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .videoCard {
+//   border-radius: 5px;
+//   box-shadow: 0 3px 5px 0;
+//   margin-top: 1rem;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   width: fit-content;
+//   background-color: white;
+//   overflow: hidden;
+
+//   p {
+//     padding: 0.4rem;
+//     margin: 0;
+//   }
+
+//   iFrame {
+//     border-radius: 4px;
+//   }
+// }
+
+// .videoCard > * {
+//   margin: 5px;
+// }

@@ -1,0 +1,23 @@
+@import "mediaQueries";
+@import "PostSandbox";
+@import "Articles";
+@import "Home";
+@import "Navbar";
+@import "VideoUploader";
+
+* {
+  box-sizing: border-box;
+  font-family: "Bebas Neue", cursive;
+}
+
+#root {
+  background-image: url("../img/backgroundImg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: rgba(255, 255, 255, 0.918);
+}
